@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   }.freeze
 
   def info_for_paper_trail
-    { email: current_user.email, parent_type: Auditing::ParentTypeName.new(self).call,
+    { email: current_user&.email, parent_type: Auditing::ParentTypeName.new(self).call,
       parent_event: DEFAULT_CONTROLLER_ACTIONS[action_name.to_sym]&.capitalize,
       parent_id: params[:id] }
   end

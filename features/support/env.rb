@@ -8,10 +8,21 @@
 require 'cucumber/rails'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+require 'warden'
+Capybara.app = Rails.application
+Capybara.app_host = 'http://localhost:3001'
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
 
-Capybara.configure do |config|
-  config.default_driver = :selenium_chrome_headless
-  config.app_host = 'http://lvh.me:3001'
+Capybara.javascript_driver = :selenium_chrome
+Warden.test_mode!
+World Warden::Test::Helpers
+After { Warden.test_reset! }
+World(Capybara::DSL)
+
+Before do
+  Rails.application.load_seed
 end
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
