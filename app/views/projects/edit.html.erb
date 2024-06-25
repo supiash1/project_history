@@ -1,0 +1,8 @@
+<%= simple_form_for @project_form.project, url: project_path(@project_form.project.id), method: :put do |f| %>
+  <p>Name: <%= @project_form.project.name %></p>
+  <%= f.association :status, collection: @project_form.statuses, prompt: "Choose a Status" %>
+  <%= f.simple_fields_for :comments, @project_form.project.comments.build do |comment| %>
+    <%= comment.input :body %>
+  <% end %>
+  <%= f.button :submit, "Update Project" %>
+<% end %>
