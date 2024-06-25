@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_25_220134) do
     t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object"
+    t.json "object"
     t.datetime "created_at"
     t.string "parent_type"
     t.string "parent_event"

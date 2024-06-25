@@ -5,7 +5,8 @@
     <tr>
       <th>Name</th>
       <th>Status</th>
-      <th>Actions</th>
+      <th>Edit</th>
+      <th>View History</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,7 @@
         <td><%= project.name %></td>
         <td><%= project.status.name %></td>
         <td><%= link_to 'Edit', edit_project_path(project), class: 'edit-link' %></td>
+        <td><%= link_to 'View History', project_history_path(project), class: 'btn btn-info' %></td>
       </tr>
     <% end %>
   </tbody>

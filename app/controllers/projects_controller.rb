@@ -27,6 +27,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:status_id, comments_attributes: %i[id text _destroy])
+    params.require(:project).permit(:status_id, comments_attributes: %i[id body _destroy])
   end
 end

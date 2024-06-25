@@ -1,0 +1,30 @@
+<h1>Project History</h1>
+
+<% if @versions.any? %>
+  <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th>Changed at</th>
+        <th>User</th>
+        <th>Item</th>
+        <th>Item ID</th>
+        <th>Event</th>
+        <th>Changes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @versions.each do |version| %>
+        <tr>
+          <td><%= version.created_at %></td>
+          <td><%= version.email %></td>
+          <td><%= version.item_type %></td>
+          <td><%= version.item_id %></td>
+          <td><%= version.event %></td>
+          <td><%= version.changeset %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No history available for this project.</p>
+<% end %>
