@@ -71,4 +71,6 @@ group :test do
   gem "capybara"
   gem 'shoulda-matchers'
   gem "selenium-webdriver"
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
