@@ -1,6 +1,6 @@
-<h1>Project History</h1>
+<h1>Project project_history</h1>
 
-<% if @versions.any? %>
+<% if @project_history.any? %>
   <table style="border-collapse: collapse; width: 100%;">
     <thead>
       <tr>
@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @versions.each do |version| %>
+      <% @project_history.each do |version| %>
         <tr>
           <td><%= version.created_at %></td>
           <td><%= version.email %></td>
@@ -26,5 +26,5 @@
     </tbody>
   </table>
 <% else %>
-  <p>No history available for this project.</p>
+  <p>No project_history available for this project.</p>
 <% end %>
